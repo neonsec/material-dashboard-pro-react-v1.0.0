@@ -1,21 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import indexRoutes from "routes/index.jsx";
+import { store } from './_helpers/store.js';
+//import { store } from './store.js';
+import { App } from './App.jsx';
+//import {Hello}   from './Hello.jsx';
 
-import "assets/scss/material-dashboard-pro-react.css";
+// setup fake backend
+//import { configureFakeBackend } from './_helpers';
+//configureFakeBackend();
 
-const hist = createBrowserHistory();
 
-ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      {indexRoutes.map((prop, key) => {
-        return <Route path={prop.path} component={prop.component} key={key} />;
-      })}
-    </Switch>
-  </Router>,
-  document.getElementById("root")
+
+render(
+   <Provider store={store}>
+       <App />
+  </Provider>,
+    document.getElementById('root')
 );
+
+// import RaisedButtons from 'components/RaisedButton/RaisedButton.jsx';
+
+// render(
+//     <RaisedButtons/>,
+//      document.getElementById('root')
+//  );

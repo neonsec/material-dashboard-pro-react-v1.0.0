@@ -14,6 +14,10 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
 // // // stories for RTLSupport view
 // #############################
 
+import Cookies from 'universal-cookie';
+var cookies = new Cookies();
+
+
 const rtlStories = [
   {
     // First story
@@ -431,5 +435,6 @@ export {
   rtlWebsite,
   rtlServer,
   // data for datatables.net in DataTables view
-  dataTable
+  dataTable,
+    cookies
 };
